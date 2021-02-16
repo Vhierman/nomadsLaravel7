@@ -67,7 +67,7 @@
                         <div class="travel-country">INDONESIA</div>
                         <div class="travel-location">PURA</div>
                         <div class="travel-button mt-auto">
-                            <a href="details.html" class="btn btn-travel-details px-4">
+                            <a href="{{route('detail')}}" class="btn btn-travel-details px-4">
                                 View Details
                             </a>
                         </div>
@@ -80,7 +80,7 @@
                         <div class="travel-country">INDONESIA</div>
                         <div class="travel-location">DANAU TOBA</div>
                         <div class="travel-button mt-auto">
-                            <a href="#" class="btn btn-travel-details px-4">
+                            <a href="{{route('detail')}}" class="btn btn-travel-details px-4">
                                 View Details
                             </a>
                         </div>
@@ -93,7 +93,7 @@
                         <div class="travel-country">INDONESIA</div>
                         <div class="travel-location">WONOSOBO</div>
                         <div class="travel-button mt-auto">
-                            <a href="#" class="btn btn-travel-details px-4">
+                            <a href="{{route('detail')}}" class="btn btn-travel-details px-4">
                                 View Details
                             </a>
                         </div>
@@ -106,7 +106,7 @@
                         <div class="travel-country">INDONESIA</div>
                         <div class="travel-location">RAJA AMPAT</div>
                         <div class="travel-button mt-auto">
-                            <a href="#" class="btn btn-travel-details px-4">
+                            <a href="{{route('detail')}}" class="btn btn-travel-details px-4">
                                 View Details
                             </a>
                         </div>

@@ -3,7 +3,7 @@
     <nav class="row navbar navbar-expand-lg navbar-light bg-white">
         
         <!-- Logo -->
-        <a href="#" class="navbar-brand">
+        <a href="{{route('home')}}" class="navbar-brand">
             <img src="{{url('frontend/images/logo1.png')}}" alt="Logo Nomads">
         </a>
         <!-- End Logo -->
@@ -17,7 +17,7 @@
         <!-- Menu -->
         <div class="collapse navbar-collapse" id="navb">
             <ul class="navbar-nav ml-auto mr-3">
-                <li class="nav-item mx-md-2"><a href="#" class="nav-link active">Home</a></li>
+                <li class="nav-item mx-md-2"><a href="{{route('home')}}" class="nav-link active">Home</a></li>
                 <li class="nav-item mx-md-2"><a href="#" class="nav-link">Paket Travel</a></li>
                 <li class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown">
