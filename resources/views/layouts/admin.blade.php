@@ -9,9 +9,9 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    @include('includes.style')
+    @include('includes.admin.style')
 
-    <title>SB Admin 2 - Dashboard</title>
+    <title>NOMADS ADMIN</title>
 
 </head>
 
@@ -20,21 +20,21 @@
     <!-- Page Wrapper -->
     <div id="wrapper">
 
-        @include('includes.sidebar')
+        @include('includes.admin.sidebar')
 
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
             <!-- Main Content -->
             <div id="content">
             {{-- Topbar --}}
-            @include('includes.navbar')
+            @include('includes.admin.navbar')
             {{-- Insert Content Yang ada di page/admin/dashboard.blade.php --}}
             @yield('content')
             {{-- End Insert Content Yang ada di page/admin/dashboard.blade.php --}}
             </div>
             <!-- End of Main Content -->
             {{-- Footer --}}
-            @include('includes.footer')
+            @include('includes.admin.footer')
         </div>
         <!-- End of Content Wrapper -->
     </div>
@@ -65,7 +65,7 @@
         </div>
     </div>
 
-    @include('includes.script')
+    @include('includes.admin.script')
 
 
     

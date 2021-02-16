@@ -1,9 +1,9 @@
-<!-- Bootstrap core JavaScript-->
-<script src="{{url('backend/vendor/jquery/jquery.min.js')}}"></script>
-<script src="{{url('backend/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-
-<!-- Core plugin JavaScript-->
-<script src="{{url('backend/vendor/jquery-easing/jquery.easing.min.js')}}"></script>
-
-<!-- Custom scripts for all pages-->
-<script src="{{url('backend/js/sb-admin-2.min.js')}}"></script>
+<!-- Plugin Jquery -->
+<script src="{{url('frontend/libraries/jquery/jquery-3.5.1.min.js')}}"></script>
+<!-- End Plugin Jquery -->
+<!-- Library Bootstrap -->
+<script src="{{url('frontend/libraries/bootstrap/js/bootstrap.js')}}"></script>
+<!-- End Library Bootstrap -->
+<!-- Retina JS -->
+<script src="{{url('frontend/libraries/retina/retina.min.js')}}"></script>
+<!-- End Retina JS -->
