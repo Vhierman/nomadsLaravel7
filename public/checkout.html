@@ -11,9 +11,7 @@
     <!-- Library Xzoom -->
     <link rel="stylesheet" href="frontend/libraries/xzoom/xzoom.css">
     <!-- End Library Xzoom -->
-    <!-- Gijgo Datepicker -->
-    <link rel="stylesheet" href="frontend/libraries/gijgo-datepicker/css/gijgo.min.css">
-    <!-- End Gijgo Datepicker -->
+    
     <!-- Fonts Assistant And Playfair Display-->
     <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@200;300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <!-- End Fonts -->
@@ -23,189 +21,9 @@
     
 </head>
 <body>
-    <!-- Navbar -->
-    <div class="container">
-        <nav class="row navbar navbar-expand-lg navbar-light bg-white">
-            
-            <div class="navbar-nav ml-auto mr-auto mr-sm-auto mr-lg-0 mr-md-auto">
-                <a href="index.html" class="navbar-brand">
-                    <img src="frontend/images/logo1.png" >
-                </a>
-            </div>
-            <ul class="navbar-nav mr-auto d-none d-lg-block">
-                <li>
-                    <span class="text-muted">
-                        | &nbsp; Beyond The Explore of the World
-                    </span>
-                </li>
-            </ul>
-        </nav>
-    </div>
-    <!-- End Navbar -->
     
-    <main>
-        <section class="section-details-header"></section>
-            <section class="section-details-content">
-                <div class="container">
-                    <div class="row">
-                        <div class="col p-0">
-                            <nav aria-label="breadcrumb">
-                                <ol class="breadcrumb">
-                                    <li class="breadcrumb-item">
-                                        Paket Travel
-                                    </li>
-                                    <li class="breadcrumb-item" aria-current="page">
-                                        Details
-                                    </li>
-                                    <li class="breadcrumb-item active" aria-current="page">
-                                        Checkout
-                                    </li>
-                                </ol>
-                            </nav>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-8 pl-lg-0">
-                            <div class="card card-details">
-                                <h1>Who is Going ?</h1>
-                                <p>
-                                    Trip to Pura, Bali Indonesia.
-                                </p>
-                                <div class="attendee">
-                                    <table class="table table-responsive-sm text-center">
-                                        <thead>
-                                            <tr>
-                                                <td>Picture</td>
-                                                <td>Name</td>
-                                                <td>Nationality</td>
-                                                <td>VISA</td>
-                                                <td>Passport</td>
-                                                <td></td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>
-                                                  <img src="frontend/images/avatar1.png" height="60px">  
-                                                </td>
-                                                <td class="align-middle">Achmad Firmansyah</td>
-                                                <td class="align-middle">Indonesia</td>
-                                                <td class="align-middle">N/A</td>
-                                                <td class="align-middle">Active</td>
-                                                <td class="align-middle">
-                                                    <img src="frontend/images/icon/remove.png" height="15px">
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <img src="frontend/images/avatar2.png" height="60px">  
-                                                </td>
-                                                <td class="align-middle">Elinawati</td>
-                                                <td class="align-middle">Indonesia</td>
-                                                <td class="align-middle">30 Days</td>
-                                                <td class="align-middle">Active</td>
-                                                <td class="align-middle">
-                                                    <img src="frontend/images/icon/remove.png" height="15px">
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <div class="member mt-3">
-                                    <h2>Add Member</h2>
-                                    <form action="" class="form-inline">
-                                        <label for="inputUsername" class="sr-only">Name</label>
-                                        <input type="text" name="inputUsername" id="inputUsername" class="form-control mb-2 mr-sm-2" placeholder="Masukan Username">
-                                        <label for="inputVisa" class="sr-only">VISA</label>
-                                        <select name="inputVisa" id="inputVisa" class="custom-select mb-2 mr-sm-2">
-                                            <option value="VISA" selected>VISA</option>
-                                            <option value="30 Days">30 Days</option>
-                                            <option value="N/A">N/A</option>
-                                        </select>
-                                        <label for="doePassport" class="sr-only">PASSPORT</label>
-                                        <div class="input-group mb-2 mr-sm-2">
-                                            <input type="text" name="doePassport" id="doePassport" class="form-control datepicker" placeholder="DOE Passprt">
-                                        </div>
-                                        <button type="submit" class="btn btn-add-now mb-2 px-4">Add Now</button>
-                                    </form>
-                                    <h3 class="mt-2 mb-0">Note</h3>
-                                    <p class="disclaimer mb-0">
-                                        You are only able to invite member that has registered in Nomads.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4">
-                            <div class="card card-details card-right">
-                                <h2>Checkout Infdrmation</h2>
-                                <table class="trip-information">
-                                    <tr>
-                                        <th width="50%">Members</th>
-                                        <td width="50%" class="text-right">2 Person</td>
-                                    </tr>
-                                    <tr>
-                                        <th width="50%">Additional VISA</th>
-                                        <td width="50%" class="text-right">$190.00</td>
-                                    </tr>
-                                    <tr>
-                                        <th width="50%">Trip Price</th>
-                                        <td width="50%" class="text-right">$80.00/Person</td>
-                                    </tr>
-                                    <tr>
-                                        <th width="50%">Total Price</th>
-                                        <td width="50%" class="text-right">$280.00</td>
-                                    </tr>
-                                    <tr>
-                                        <th width="50%">Total Pay (+Unique Code)</th>
-                                        <td width="50%" class="text-right text-total">
-                                            <span class="text-blue">$279.</span>
-                                            <span class="text-orange">33</span>
-                                        </td>
-                                    </tr>
-                                </table>
-                                <hr>
-                                <h2>Payment Instruction</h2>
-                                <p class="payment-instructions">
-                                    Please complete the payment before you continue the trip.
-                                </p>
-                                <div class="bank">
-                                    <div class="bank-item pb-3">
-                                        <img src="frontend/images/icon/atm.png" alt="" class="bank-image">
-                                        <div class="description">
-                                            <h3>PT Nomads ID</h3>
-                                            <p>
-                                                34653453455
-                                                <br>
-                                                Bank Central Asia
-                                            </p>
-                                        </div>
-                                        <div class="clearfix"></div>
-                                    </div>
-                                    <div class="bank-item pb-3">
-                                        <img src="frontend/images/icon/atm.png" alt="" class="bank-image">
-                                        <div class="description">
-                                            <h3>PT Nomads ID</h3>
-                                            <p>
-                                                0345525345
-                                                <br>
-                                                Bank Permata
-                                            </p>
-                                        </div>
-                                        <div class="clearfix"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="join-container">
-                                <a href="success.html" class="btn btn-block btn-join-now mt-3 py-2">I Have Maid Payment</a>
-                            </div>
-                            <div class="text-center mt-3">
-                                <a href="index.html" class="text-muted">Cancel Booking</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-    </main>
+    
+    
 
     <!-- footer -->
     <footer class="section-footer mt-5 mb-4 border-top">
@@ -272,28 +90,16 @@
     <!-- Xzoom -->
     <script src="frontend/libraries/xzoom/xzoom.min.js"></script>
     <!-- Xzoom -->
-    <!-- Gijgo Datepicker -->
-    <script src="frontend/libraries/gijgo-datepicker/js/gijgo.min.js"></script>
-    <!-- End Gijgo Datepicker -->
+    
     
     <!-- Xzoom -->
     <script>
-        //Inisialisasi Xzoom Image
-        $(document).ready(function(){
-            $('.xzoom, .xzoom-gallery').xzoom({
-                zoomWidth: 500,
-                title: false,
-                tint: '#ffffff',
-                xoffset: 15
-            });
-
         //Inisialisasi Datepicker
         $('.datepicker').datepicker({
             uilibrary: 'bootstrap4',
             icons: {
                 rightIcon: '<img src="frontend/images/icon/calendar.png"/>'
             }
-        })
         });
     </script>
     <!-- End Xzoom -->
