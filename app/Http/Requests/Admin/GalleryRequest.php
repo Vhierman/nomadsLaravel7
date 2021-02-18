@@ -25,7 +25,7 @@ class GalleryRequest extends FormRequest
     {
         return [
             //
-            'travel_package_id'=> 'required|integer|exists:travel_package,id',
+            'travel_packages_id'=> 'required|integer|exists:travel_packages,id',
             'image'=> 'required|image'
         ];
     }

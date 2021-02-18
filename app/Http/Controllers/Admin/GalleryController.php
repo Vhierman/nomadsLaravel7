@@ -12,6 +12,10 @@ use App\Http\Requests\Admin\GalleryRequest;
 use App\Gallery;
 //End Panggil Model Package
 
+//Panggil Model TravelPackage
+use App\TravelPackage;
+//End Panggil Model TravelPackage
+
 use Illuminate\Http\Request;
 
 //Memanggil Fungsi String Punya Laravel
@@ -28,7 +32,7 @@ class GalleryController extends Controller
     public function index()
     {
         //Memanggil Semua Data Gallery Dengan Relasi TravelPackage
-        $items = Gallery::with(['travel-package'])->get();
+        $items = Gallery::with(['travel_package'])->get();
 
         //Mengirimkan parameter items ke dalam folder pages/admin/travl-package/index.blade.php
         return view('pages.admin.gallery.index',[
@@ -43,8 +47,12 @@ class GalleryController extends Controller
      */
     public function create()
     {
+        //Pas Upload Gallery Bisa Menggunakan TravelPackage
+        $travel_packages = TravelPackage::all();
         //Memanggil Halaman Tambah Package Travel
-        return view ('pages.admin.gallery.create');
+        return view ('pages.admin.gallery.create',[
+            'travel_packages' => $travel_packages
+        ]);
     }
 
     /**
@@ -57,9 +65,11 @@ class GalleryController extends Controller
     {
         //Menngambil Semua Data Yang sudah di Validasi Pada Request
         $data = $request->all();
-        //Membuat Slug
-        $data['slug'] = Str::slug($request->title);
-        //Tambha Data Gallery
+        //Upload Gambar
+        $data['image'] = $request->file('image')->store(
+            'assets/gallery','public'
+        );
+        //Tambah Data Gallery
         Gallery::create($data);
         //Redirect Data Gallery
         return redirect()->route('gallery.index');

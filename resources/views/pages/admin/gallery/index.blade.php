@@ -10,7 +10,7 @@
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
     <h1 class="h3 mb-0 text-gray-800">Gallery</h1>
     <a href="{{route('gallery.create')}}" class="btn btn-primary shadow-sm">
-        <i class="fas fa-plus fa-sm text-white-50">Tambah Paket Travel</i>
+        <i class="fas fa-plus fa-sm text-white-50">Tambah Gallery</i>
     </a>
 </div>
 
@@ -31,7 +31,7 @@
                     @forelse ($items as $item)
                     <tr>
                         <td>{{$item->id}}</td>
-                        <td>{{$item->package_travel->title}}</td>
+                        <td>{{$item->travel_package->title}}</td>
                         <td>
                         <img src="{{Storage::url($item->image)}}" alt="" style="width:150px" class="img-thumbnail">    
                         </td>

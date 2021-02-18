@@ -15,7 +15,7 @@ class Gallery extends Model
 
     //Data Yang boleh dimasukan ke dalam database
     protected $fillable = [
-        'travel_package_id','image'
+        'travel_packages_id','image'
     ];
 
     //
@@ -25,7 +25,7 @@ class Gallery extends Model
 
     //Membuat Relasi Antara Gallery Dengan PackageTravel
     public function travel_package() {
-        return $this->belongsTo(TravelPackage::class,'travel-packages_id','id');
+        return $this->belongsTo(TravelPackage::class,'travel_packages_id','id');
     }
 
 }
