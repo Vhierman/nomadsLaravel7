@@ -55,11 +55,13 @@ class TravelPackageController extends Controller
      */
     public function store(TravelPackageRequest $request)
     {
-        //Menyimpan Tambah Data Package Travel
+        //Menngambil Semua Data Yang sudah di Validasi Pada Request
         $data = $request->all();
+        //Membuat Slug
         $data['slug'] = Str::slug($request->title);
-
+        //Tambha Data TravelPackage
         TravelPackage::create($data);
+        //Redirect Data TravelPackage
         return redirect()->route('travel-package.index');
     }
 
@@ -82,7 +84,12 @@ class TravelPackageController extends Controller
      */
     public function edit($id)
     {
-        //
+        //fungsi findOrFail artinya Jika datanya ada akan tampil, namun jika data kosong maka akan 404
+        $item = TravelPackage::findOrFail($id);
+        //Menampilkan View
+        return view('pages.admin.travel-package.edit',[
+            'item' => $item
+        ]);
     }
 
     /**
@@ -92,9 +99,18 @@ class TravelPackageController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(TravelPackageRequest $request, $id)
     {
-        //
+        //Menngambil Semua Data Yang sudah di Validasi Pada Request
+        $data = $request->all();
+        //Membuat Slug
+        $data['slug'] = Str::slug($request->title);
+        //fungsi findOrFail artinya Jika datanya ada akan tampil, namun jika data kosong maka akan 404
+        $item = TravelPackage::findOrFail($id);
+        //Melakukan Edit Data TravelPackage
+        $item->update($data);
+        //Redirect Data TravelPackage
+        return redirect()->route('travel-package.index');
     }
 
     /**
