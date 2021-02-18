@@ -36,6 +36,9 @@ Route::prefix('admin')
      //Mendaftarkan Controller Travel-Package Agar Bisa DI akses
      Route::resource('travel-package','TravelPackageController');
      //End Mendaftarkan Controller Travel-Package Agar Bisa DI akses
+     //Mendaftarkan Controller Gallery Agar Bisa DI akses
+     Route::resource('gallery','GalleryController');
+     //End Mendaftarkan Controller Gallery Agar Bisa DI akses
 });
 
 //Untuk Authentication Verifikasi Email
