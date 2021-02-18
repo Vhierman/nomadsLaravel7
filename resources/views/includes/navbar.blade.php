@@ -29,21 +29,49 @@
                 </li>
                 <li class="nav-item mx-md-2"><a href="#" class="nav-link">Testimonial</a></li>
             </ul>
-            <!-- Mobile Button -->
-            <form action="#" class="form-inline d-sm-block d-md-none">
-                <button type="button" class="btn btn-login my-2 my-sm-0">
+            
+            {{-- Jika Belum LOgin Maka Button nya Masuk --}}
+            @guest
+             <!-- Mobile Button -->
+            <form class="form-inline d-sm-block d-md-none">
+                <button class="btn btn-login my-2 my-sm-0" type="button"
+                onclick="event.preventDefault(); location.href='{{ url('login')}}';">
                     Masuk
                 </button>
             </form>
             <!-- End Mobile Button -->
             
             <!-- Desktop Button -->
-            <form action="#" class="form-inline my-2 my-lg-0 d-none d-md-block">
-                <button type="button" class="btn btn-login btn-navbar-right my-2 my-sm-0 px-4">
+            <form class="form-inline my-2 my-lg-0 d-none d-md-block">
+                <button class="btn btn-login btn-navbar-right my-2 my-sm-0 px-4" type="button"
+                onclick="event.preventDefault(); location.href='{{ url('login')}}';">
                     Masuk
                 </button>
             </form>
-            <!-- End Desktop Button -->
+            <!-- End Desktop Button -->   
+            @endguest
+
+            {{-- Jika Sudah LOgin Maka Button nya berubah menjadi logout --}}
+            @auth
+             <!-- Mobile Button -->
+            <form action="{{url('logout')}}" method="POST" class="form-inline d-sm-block d-md-none">
+                @csrf
+                <button class="btn btn-login my-2 my-sm-0" type="submit">
+                    Keluar
+                </button>
+            </form>
+            <!-- End Mobile Button -->
+            
+            <!-- Desktop Button -->
+            <form action="{{url('logout')}}" method="POST" class="form-inline my-2 my-lg-0 d-none d-md-block">
+                @csrf
+                <button class="btn btn-login btn-navbar-right my-2 my-sm-0 px-4" type="submit">
+                    Keluar
+                </button>
+            </form>
+            <!-- End Desktop Button -->   
+            @endauth
+
         </div>
         <!-- End Menu -->
         

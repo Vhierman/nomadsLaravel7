@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,7 +26,15 @@ Route::get('/checkout/success','CheckoutController@success')->name('checkout-suc
 //Route ke Halaman Backend DashboardController method index
 Route::prefix('admin')
      ->namespace('Admin')
+     //Menambahkan Middleware untuk Authentication
+     ->middleware('auth','admin')
+     //End Menambahkan Middleware untuk Authentication
      ->group(function() {
     Route::get('/','DashboardController@index')
          ->name('dashboard');
 });
+
+//Untuk Authentication Verifikasi Email
+Auth::routes(['verify' => true]);
+//End Untuk Authentication Verifikasi Email
+

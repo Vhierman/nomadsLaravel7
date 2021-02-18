@@ -19,7 +19,7 @@ class IsAdmin
      */
     public function handle($request, Closure $next)
     {
-        //
+        //Jika Hak Aksesnya ADMIN maka bisa lanjut masuk ke halaman admin/Melanjutkan request sebelumnya
         if(Auth::user() && Auth::user()->roles == 'ADMIN'){
             return $next($request);
         }

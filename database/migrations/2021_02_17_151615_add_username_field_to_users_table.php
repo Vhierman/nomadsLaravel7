@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddRolesFieldToUsersTable extends Migration
+class AddUsernameFieldToUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,12 +14,11 @@ class AddRolesFieldToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            //Membuat Role Default Menjadi USER
-            $table->string('roles')->default('USER');
-            //USER,ADMIN
+            //
+            $table->string('username');
         });
     }
-    
+
     /**
      * Reverse the migrations.
      *
@@ -29,8 +28,7 @@ class AddRolesFieldToUsersTable extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             //
-            $table->dropColumn('roles');
-            //USER,ADMIN
+            $table->dropColumn('username');
         });
     }
 }
