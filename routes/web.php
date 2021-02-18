@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Auth;
 //Route Langsung Ke Halaman Frontend Saat URL Pertama kali di akses
 Route::get('/','HomeController@index')->name('home');
 //Route Ke Halaman Frontend Detail Melalui Detail Controller Method index
-Route::get('/detail','DetailController@index')->name('detail');
+Route::get('/detail/{slug}','DetailController@index')->name('detail');
 //Route Ke Halaman Frontend Checkout Melalui Controller CheckoutController Method index
 Route::get('/checkout','CheckoutController@index')->name('checkout');
 //Route Ke Halaman Frontend Success Checkout Melalui Controller CheckoutController Method success
