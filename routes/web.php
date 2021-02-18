@@ -32,6 +32,10 @@ Route::prefix('admin')
      ->group(function() {
     Route::get('/','DashboardController@index')
          ->name('dashboard');
+     
+     //Mendaftarkan Controller Travel-Package Agar Bisa DI akses
+     Route::resource('travel-package','TravelPackageController');
+     //End Mendaftarkan Controller Travel-Package Agar Bisa DI akses
 });
 
 //Untuk Authentication Verifikasi Email
