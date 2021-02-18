@@ -8,7 +8,7 @@
 
 <!-- Page Heading -->
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">Edit Data Travel {{$item->title}}</h1>
+    <h1 class="h3 mb-0 text-gray-800">Edit Data Gallery</h1>
 </div>
 
 {{-- Fungsi untuk menampilkan pesan jika ada yang errors --}}
@@ -27,48 +27,23 @@
 <div class="card shadow">
     <div class="card-body">
         {{-- Untuk menyimpan Tambah Data Menggunakan Fungsi store --}}
-        <form action="{{route('gallery.update',$item->id)}}" method="POST">
+        <form action="{{route('gallery.update',$item->id)}}" method="POST" enctype="multipart/form-data">
             @method('PUT')
             @csrf
             <div class="form-group">
-                <label for="title">Title</label>
-                <input type="text" class="form-control" name="title" placeholder="title" value="{{$item->title}}">
+                <label for="travel_packages_id">Paket Travel</label>
+                <select name="travel_packages_id" required class="form-control">
+                    <option value="{{$item->travel_packages_id}}">Jangan Diubah</option>
+                    @foreach ($travel_packages as $travel_package)
+                        <option value="{{ $travel_package->id }}">
+                            {{ $travel_package->title }}
+                        </option>                        
+                    @endforeach
+                </select>
             </div>
             <div class="form-group">
-                <label for="location">Location</label>
-                <input type="text" class="form-control" name="location" placeholder="location" value="{{$item->location}}">
-            </div>
-            <div class="form-group">
-                <label for="about">About</label>
-                <textarea name="about" class="d-block w-100 form-control" rows="10">{{$item->about}}</textarea>
-            </div>
-            <div class="form-group">
-                <label for="featured_event">Featured Event</label>
-                <input type="text" class="form-control" name="featured_event" placeholder="featured_event" value="{{$item->featured_event}}">
-            </div>
-            <div class="form-group">
-                <label for="language">Language</label>
-                <input type="text" class="form-control" name="language" placeholder="location" value="{{$item->language}}">
-            </div>
-            <div class="form-group">
-                <label for="foods">Foods</label>
-                <input type="text" class="form-control" name="foods" placeholder="foods" value="{{$item->foods}}">
-            </div>
-            <div class="form-group">
-                <label for="departure_date">Departure Date</label>
-                <input type="date" class="form-control" name="departure_date" placeholder="departure_date" value="{{$item->departure_date}}">
-            </div>
-            <div class="form-group">
-                <label for="duration">Duration</label>
-                <input type="text" class="form-control" name="duration" placeholder="duration" value="{{$item->duration}}">
-            </div>
-            <div class="form-group">
-                <label for="type">Type</label>
-                <input type="text" class="form-control" name="type" placeholder="type" value="{{$item->type}}">
-            </div>
-            <div class="form-group">
-                <label for="price">Price</label>
-                <input type="number" class="form-control" name="price" placeholder="price" value="{{$item->price}}">
+                <label for="image">Image</label>
+                <input type="file" class="form-control" name="image" placeholder="Image">
             </div>
             <button type="submit" class="btn btn-primary">
                 Ubah

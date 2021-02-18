@@ -96,9 +96,12 @@ class GalleryController extends Controller
     {
         //fungsi findOrFail artinya Jika datanya ada akan tampil, namun jika data kosong maka akan 404
         $item = Gallery::findOrFail($id);
+        //Pas Upload Gallery Bisa Menggunakan TravelPackage
+        $travel_packages = TravelPackage::all();
         //Menampilkan View
         return view('pages.admin.gallery.edit',[
-            'item' => $item
+            'item' => $item,
+            'travel_packages' => $travel_packages
         ]);
     }
 
@@ -113,8 +116,10 @@ class GalleryController extends Controller
     {
         //Menngambil Semua Data Yang sudah di Validasi Pada Request
         $data = $request->all();
-        //Membuat Slug
-        $data['slug'] = Str::slug($request->title);
+        //Upload Gambar
+        $data['image'] = $request->file('image')->store(
+            'assets/gallery','public'
+        );
         //fungsi findOrFail artinya Jika datanya ada akan tampil, namun jika data kosong maka akan 404
         $item = Gallery::findOrFail($id);
         //Melakukan Edit Data Gallery
