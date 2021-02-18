@@ -4,11 +4,19 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 
+//Panggil Request Admin Untuk Validasi Travel Package
+use App\Http\Requests\Admin\TravelPackageRequest;
+//End Panggil Request Admin Untuk Validasi Travel Package
+
 //Panggil Model Travel Package
 use App\TravelPackage;
 //End Panggil Model Package
 
 use Illuminate\Http\Request;
+
+//Memanggil Fungsi String Punya Laravel
+use Illuminate\Support\Str;
+//End Memanggil Fungsi String Punya Laravel
 
 class TravelPackageController extends Controller
 {
@@ -35,7 +43,8 @@ class TravelPackageController extends Controller
      */
     public function create()
     {
-        //
+        //Memanggil Halaman Tambah Package Travel
+        return view ('pages.admin.travel-package.create');
     }
 
     /**
@@ -44,9 +53,14 @@ class TravelPackageController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(TravelPackageRequest $request)
     {
-        //
+        //Menyimpan Tambah Data Package Travel
+        $data = $request->all();
+        $data['slug'] = Str::slug($request->title);
+
+        TravelPackage::create($data);
+        return redirect()->route('travel-package.index');
     }
 
     /**
