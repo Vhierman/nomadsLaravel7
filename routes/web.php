@@ -39,6 +39,9 @@ Route::prefix('admin')
      //Mendaftarkan Controller Gallery Agar Bisa DI akses
      Route::resource('gallery','GalleryController');
      //End Mendaftarkan Controller Gallery Agar Bisa DI akses
+     //Mendaftarkan Controller Transaction Agar Bisa DI akses
+     Route::resource('transaction','TransactionController');
+     //End Mendaftarkan Transaction Agar Bisa DI akses
 });
 
 //Untuk Authentication Verifikasi Email
