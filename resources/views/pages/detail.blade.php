@@ -22,56 +22,48 @@
                 <div class="row">
                     <div class="col-lg-8 pl-lg-0">
                         <div class="card card-details">
-                            <h1>PURA</h1>
+                            <h1>{{$item->title}}</h1>
                             <p>
-                                Republic of Indonesia Raya
+                                {{$item->location}}
                             </p>
+                            @if ($item->galleries->count())
                             <div class="gallery">
                                 <div class="xzoom-container">
-                                    <img src="frontend/images/tarikecak.jpg" class="xzoom" id="xzoom-default" xoriginal="frontend/images/tarikecak.jpg"  >
+                                    <img src="{{Storage::url($item->galleries->first()->image)}}" class="xzoom" id="xzoom-default" xoriginal="{{Storage::url($item->galleries->first()->image)}}"  >
                                 </div>
                                 <div class="xzoom-thumbs">
-                                    <a href="frontend/images/tarikecak.jpg">
-                                        <img src="frontend/images/tarikecak.jpg" class="xzoom-gallery" width="128"  xpreview="frontend/images/tarikecak.jpg">
+                                    @foreach ($item->galleries as $gallery)
+                                    <a href="{{ Storage::url($gallery->image)}}">
+                                        <img src="{{Storage::url($gallery->image)}}" class="xzoom-gallery" width="128"  xpreview="{{Storage::url($gallery->image)}}">
                                     </a>
-                                    <a href="frontend/images/thumbnail32.jpg">
-                                        <img src="frontend/images/thumbnail32.jpg" class="xzoom-gallery" width="128"  xpreview="frontend/images/thumbnail32.jpg">
-                                    </a>
-                                    <a href="frontend/images/thumbnail42.jpg">
-                                        <img src="frontend/images/thumbnail42.jpg" class="xzoom-gallery" width="128"  xpreview="frontend/images/thumbnail42.jpg">
-                                    </a>
-                                    <a href="frontend/images/thumbnail52.jpg">
-                                        <img src="frontend/images/thumbnail52.jpg" class="xzoom-gallery" width="128"  xpreview="frontend/images/thumbnail52.jpg">
-                                    </a>
-                                    <a href="frontend/images/thumbnail52.jpg">
-                                        <img src="frontend/images/thumbnail52.jpg" class="xzoom-gallery" width="128"  xpreview="frontend/images/thumbnail52.jpg">
-                                    </a>
+                                    @endforeach 
                                 </div>
-                            </div>
+                            </div> 
+                            @endif
                             <h2>Tentang Wisata</h2>
                             <p>
-                                Kata "Pura" sesungguhnya berasal dari akhiran bahasa Sanskerta, yang artinya adalah gerbang, misal, angkasapura berarti Gerbang angkasa. Dalam perkembangan pemakaiannya di Pulau Bali, istilah "Pura" menjadi khusus untuk tempat ibadah; sedangkan istilah "Puri" menjadi khusus untuk tempat tinggal para raja dan bangsawan.
+                                {!! $item->about !!}
                             </p>
                             <div class="features row">
                                 <div class="col-md-4">
-                                    <img src="frontend/images/icon/event.png" alt="" class="features-image">
+                                    <img src="{{url('frontend/images/icon/event.png')}}" alt="" class="features-image">
                                     <div class="description">
                                         <h3>Featured Event</h3>
-                                        <p>Tari Kecak</p>
+                                        <p>{{$item->featured_event}}</p>
                                     </div>
                                 </div>
                                 <div class="col-md-4 border-left">
-                                    <img src="frontend/images/icon/language.png" alt="" class="features-image">
+                                    <img src="{{url('frontend/images/icon/language.png')}}" alt="" class="features-image">
                                     <div class="description">
                                         <h3>Language</h3>
-                                        <p>Bahasa Indonesia</p>
+                                        <p>{{$item->language}}</p>
                                     </div>
                                 </div>
                                 <div class="col-md-4 border-left">
-                                    <img src="frontend/images/icon/food.png" alt="" class="features-image">
+                                    <img src="{{url('frontend/images/icon/food.png')}}" alt="" class="features-image">
                                     <div class="description">
                                         <h3>Foods</h3>
-                                        <p>Local Foods</p>
+                                        <p>{{$item->foods}}</p>
                                     </div>
                                 </div>
                             </div>
@@ -94,24 +86,33 @@
                             <table class="trip-information">
                                 <tr>
                                     <th width="50%">Date of departures</th>
-                                    <td width="50%" class="text-right">22 Aug 2021</td>
+                                    <td width="50%" class="text-right">{{ \Carbon\Carbon::create($item->departure_date)->format('d F,  Y') }}</td>
                                 </tr>
                                 <tr>
                                     <th width="50%">Duration </th>
-                                    <td width="50%" class="text-right">4D 3N</td>
+                                    <td width="50%" class="text-right">{{$item->duration}}</td>
                                 </tr>
                                 <tr>
                                     <th width="50%">Type of trip</th>
-                                    <td width="50%" class="text-right">Open Trip</td>
+                                    <td width="50%" class="text-right">{{$item->type}}</td>
                                 </tr>
                                 <tr>
                                     <th width="50%">Price</th>
-                                    <td width="50%" class="text-right">$80/Person</td>
+                                    <td width="50%" class="text-right">${{$item->price}}/Person</td>
                                 </tr>
                             </table>
                         </div>
                         <div class="join-container">
-                            <a href="{{route('checkout')}}" class="btn btn-block btn-join-now mt-3 py-2">Join Now</a>
+                            @auth
+                            <form action="#" method="POST">
+                                <button class="btn btn-block btn-join-now mt-3 py-2" type="submit">
+                                    Join Now
+                                </button>
+                            </form>
+                            @endauth
+                            @guest
+                            <a href="{{route('login')}}" class="btn btn-block btn-join-now mt-3 py-2">Login or Register to Join</a>
+                            @endguest
                         </div>
                     </div>
                 </div>

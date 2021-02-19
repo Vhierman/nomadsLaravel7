@@ -18,10 +18,31 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/','HomeController@index')->name('home');
 //Route Ke Halaman Frontend Detail Melalui Detail Controller Method index
 Route::get('/detail/{slug}','DetailController@index')->name('detail');
-//Route Ke Halaman Frontend Checkout Melalui Controller CheckoutController Method index
-Route::get('/checkout','CheckoutController@index')->name('checkout');
-//Route Ke Halaman Frontend Success Checkout Melalui Controller CheckoutController Method success
-Route::get('/checkout/success','CheckoutController@success')->name('checkout-success');
+
+
+//Checkout Frontend
+Route::get('/checkout/{id}','CheckoutController@process')
+->name('checkout_process')
+//Fungsi ini adalah untuk mengecek apakah sudah login apa belum dan sudah terverifikasi apa belum
+->middleware(['auth','verified']);
+
+Route::get('/checkout/{id}','CheckoutController@index')
+->name('checkout')
+->middleware(['auth','verified']);
+
+Route::get('/checkout/create/{detail_id}','CheckoutController@create')
+->name('checkout-create')
+->middleware(['auth','verified']);
+
+Route::get('/checkout/remove/{detail_id}','CheckoutController@remove')
+->name('checkout-remove')
+->middleware(['auth','verified']);
+
+Route::get('/checkout/confirm/{id}','CheckoutController@success')
+->name('checkout-success')
+->middleware(['auth','verified']);
+//End Checkout Frontend
+
 
 //Route ke Halaman Backend DashboardController method index
 Route::prefix('admin')
