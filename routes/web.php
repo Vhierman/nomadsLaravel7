@@ -21,23 +21,29 @@ Route::get('/detail/{slug}','DetailController@index')->name('detail');
 
 
 //Checkout Frontend
-Route::get('/checkout/{id}','CheckoutController@process')
+
+//Untuk memproses data dari checkout dengan mengirimkan parameter id melalui method post
+Route::post('/checkout/{id}','CheckoutController@process')
 ->name('checkout_process')
 //Fungsi ini adalah untuk mengecek apakah sudah login apa belum dan sudah terverifikasi apa belum
 ->middleware(['auth','verified']);
 
+//Mendapatkan parameter id dari route di atas dan ditampilkan di method index
 Route::get('/checkout/{id}','CheckoutController@index')
 ->name('checkout')
 ->middleware(['auth','verified']);
 
+//contohnya Jika membutuhkan orang tambahan dalam acara travel 
 Route::get('/checkout/create/{detail_id}','CheckoutController@create')
 ->name('checkout-create')
 ->middleware(['auth','verified']);
 
+//Menghapus
 Route::get('/checkout/remove/{detail_id}','CheckoutController@remove')
 ->name('checkout-remove')
 ->middleware(['auth','verified']);
 
+//Jika user sudah yakin dengan datanya, maka tahap selanjutnya adalah mengganti statusnya menjadi success
 Route::get('/checkout/confirm/{id}','CheckoutController@success')
 ->name('checkout-success')
 ->middleware(['auth','verified']);
