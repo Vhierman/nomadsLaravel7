@@ -15,7 +15,17 @@ class TravelPackage extends Model
 
     //Data Yang boleh dimasukan ke dalam database
     protected $fillable = [
-        'title','slug','location','about','featured_event','language','foods','departure_date','duration','type','price'
+        'title',
+        'slug',
+        'location',
+        'about',
+        'featured_event',
+        'language',
+        'foods',
+        'departure_date',
+        'duration',
+        'type',
+        'price'
     ];
 
     //

@@ -86,7 +86,7 @@
                             <table class="trip-information">
                                 <tr>
                                     <th width="50%">Date of departures</th>
-                                    <td width="50%" class="text-right">{{ \Carbon\Carbon::create($item->departure_date)->format('d F,  Y') }}</td>
+                                    <td width="50%" class="text-right">{{ \Carbon\Carbon::create($item->departure_date)->format('F n,  Y') }}</td>
                                 </tr>
                                 <tr>
                                     <th width="50%">Duration </th>
@@ -104,7 +104,8 @@
                         </div>
                         <div class="join-container">
                             @auth
-                            <form action="#" method="POST">
+                            <form action="{{route('checkout_process',$item->id)}}" method="post">
+                                @csrf
                                 <button class="btn btn-block btn-join-now mt-3 py-2" type="submit">
                                     Join Now
                                 </button>

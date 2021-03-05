@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 class DetailController extends Controller
 {
     // Method Index Untuk Halaman Frontend Detail
-    public function index(Request $request,$slug)
+    public function index(Request $request, $slug)
     {
         $item = TravelPackage::with(['galleries'])
         ->where('slug',$slug)

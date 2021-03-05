@@ -16,7 +16,7 @@ class Transaction extends Model
     //Data Yang boleh dimasukan ke dalam database
     protected $fillable = [
         'travel_packages_id',
-        'user_id',
+        'users_id',
         'additional_visa',
         'transaction_total',
         'transaction_status'
@@ -29,7 +29,7 @@ class Transaction extends Model
 
     //Membuat Relasi Details TravelPackage Dan User
     public function details() {
-        return $this->hasMany(TransactionDetail::class,'transaction_id','id');
+        return $this->hasMany(TransactionDetail::class,'transactions_id','id');
     }
     public function travel_package() {
         return $this->belongsTo(TravelPackage::class,'travel_packages_id','id');

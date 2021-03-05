@@ -25,7 +25,6 @@ Route::get('/detail/{slug}','DetailController@index')->name('detail');
 //Untuk memproses data dari checkout dengan mengirimkan parameter id melalui method post
 Route::post('/checkout/{id}','CheckoutController@process')
 ->name('checkout_process')
-//Fungsi ini adalah untuk mengecek apakah sudah login apa belum dan sudah terverifikasi apa belum
 ->middleware(['auth','verified']);
 
 //Mendapatkan parameter id dari route di atas dan ditampilkan di method index
@@ -34,7 +33,7 @@ Route::get('/checkout/{id}','CheckoutController@index')
 ->middleware(['auth','verified']);
 
 //contohnya Jika membutuhkan orang tambahan dalam acara travel 
-Route::get('/checkout/create/{detail_id}','CheckoutController@create')
+Route::post('/checkout/create/{detail_id}','CheckoutController@create')
 ->name('checkout-create')
 ->middleware(['auth','verified']);
 

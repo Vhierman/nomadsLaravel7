@@ -15,7 +15,8 @@ class Gallery extends Model
 
     //Data Yang boleh dimasukan ke dalam database
     protected $fillable = [
-        'travel_packages_id','image'
+        'travel_packages_id',
+        'image'
     ];
 
     //

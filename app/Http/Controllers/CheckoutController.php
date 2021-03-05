@@ -18,7 +18,8 @@ use Illuminate\Support\Facades\Auth;
 class CheckoutController extends Controller
 {
     //Method Index untuk Halaman Frontend Checkout
-    public function index(Request $request,$id){
+    public function index(Request $request,$id)
+    {
         $item = Transaction::with(['details','travel_package','user'])->findOrFail($id);
         return view('pages.checkout',[
             'item' => $item
@@ -26,8 +27,10 @@ class CheckoutController extends Controller
     }
 
     //Method process untuk Halaman Frontend Checkout
-    public function process(Request $request,$id){
+    public function process(Request $request,$id)
+    {
         $travel_package = TravelPackage::findOrFail($id);
+        
         $transaction = Transaction::create([
             'travel_packages_id' => $id,
             'users_id' => Auth::user()->id,
@@ -37,7 +40,7 @@ class CheckoutController extends Controller
         ]);
 
         TransactionDetail::create([
-            'transaction_id' => $transaction->id,
+            'transactions_id' => $transaction->id,
             'username' => Auth::user()->username,
             'nationality' => 'ID',
             'is_visa' => false,
@@ -48,7 +51,8 @@ class CheckoutController extends Controller
     }
 
     //Method remove untuk Halaman Frontend Checkout
-    public function remove(Request $request,$detail_id){
+    public function remove(Request $request,$detail_id)
+    {
         $item = TransactionDetail::findOrFail($detail_id);
         $transaction = Transaction::with(['details','travel_package'])
         ->findOrFail($item->transactions_id);
@@ -65,12 +69,13 @@ class CheckoutController extends Controller
 
         $item->delete();
 
-        return redirect()->route('checkout',$item->transaction_id);
+        return redirect()->route('checkout',$item->transactions_id);
 
     }
 
     //Method create untuk Halaman Frontend Checkout
-    public function create(Request $request,$id){
+    public function create(Request $request,$id)
+    {
         //Contoh Bikin Validasi Langsung Dari Controller
         $request->validate([
             'username' => 'required|string|exists:users,username',
@@ -108,4 +113,6 @@ class CheckoutController extends Controller
         
         return view('pages.success');
     }
+
+    
 }
